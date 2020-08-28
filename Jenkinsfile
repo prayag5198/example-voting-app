@@ -23,7 +23,7 @@ pipeline {
         echo "Building Docker Image"
         sh 'cd vote'
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build(registry, "-f vote/Dockerfile .")
         }
       }
     }

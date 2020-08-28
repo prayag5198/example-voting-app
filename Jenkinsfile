@@ -2,7 +2,6 @@ pipeline {
     
   environment {
     registry = "https://github.com/prayag5198/example-voting-app.git#master:vote"
-    //registryCredential = 'docker_hub_prabhavagrawal'
     dockerImage = ''
     }
   agent any

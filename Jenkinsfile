@@ -28,7 +28,7 @@ pipeline {
         script {
           dir("vote"){
             sh "pwd"
-            voteImage = docker.build(voteregistry, "-f vote/Dockerfile .")
+            voteImage = docker.build(voteregistry)
           }
           resultImage = docker.build(resultregistry, "-f result/Dockerfile .")
           workerImage = docker.build(workerregistry, "-f worker/Dockerfile .")

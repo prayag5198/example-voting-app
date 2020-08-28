@@ -31,10 +31,10 @@ pipeline {
             voteImage = docker.build(voteregistry)
           }
           dir("result"){
-              resultImage = docker.build(resultregistry, "-f result/Dockerfile .")
+              resultImage = docker.build(resultregistry)
           }
           dir("worker"){  
-              workerImage = docker.build(workerregistry, "-f worker/Dockerfile .")
+              workerImage = docker.build(workerregistry)
           }
         }
       }

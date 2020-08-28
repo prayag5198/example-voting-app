@@ -21,6 +21,7 @@ pipeline {
     stage ('Build Docker Image') {
       steps{
         echo "Building Docker Image"
+        sh 'cd vote'
         script {
           dockerImage = docker.build(registry, "-f vote/Dockerfile .")
         }

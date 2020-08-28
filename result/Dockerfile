@@ -1,12 +1,12 @@
 FROM node:10-slim
 
-WORKDIR /result/app
+WORKDIR /app
 
 RUN npm install -g nodemon
-ADD /result/package.json /result/app/package.json
+ADD package.json /app/package.json
 RUN npm config set registry http://registry.npmjs.org
 RUN npm install && npm ls
-RUN mv /result/app/node_modules /result/node_modules
+RUN mv /app/node_modules /node_modules
 
 ADD . /app
 

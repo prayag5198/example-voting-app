@@ -26,7 +26,10 @@ pipeline {
       steps{
         echo "Building Docker Image"
         script {
-          voteImage = docker.build(voteregistry, "-f vote/Dockerfile .")
+          dir("vote"){
+            sh "pwd"
+            voteImage = docker.build(voteregistry, "-f vote/Dockerfile .")
+          }
           resultImage = docker.build(resultregistry, "-f result/Dockerfile .")
           workerImage = docker.build(workerregistry, "-f worker/Dockerfile .")
         }

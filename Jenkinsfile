@@ -22,7 +22,7 @@ pipeline {
       steps{
         echo "Building Docker Image"
         script {
-          dockerImage = docker.build(registry, "-f vote/Dockerfile .")
+          dockerImage = docker.build(registry, "-f vote/Dockerfile")
         }
       }
     }

@@ -2,10 +2,10 @@
 FROM python:2.7-alpine
 
 # Set the application directory
-WORKDIR /app
+WORKDIR /vote/app
 
 # Install our requirements.txt
-ADD /vote/requirements.txt /app/requirements.txt
+ADD /vote/requirements.txt /vote/app/requirements.txt
 RUN pip install -r requirements.txt
 
 # Copy our code from the current folder to /app inside the container

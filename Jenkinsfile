@@ -1,8 +1,12 @@
 pipeline {
     
   environment {
-    registry = "prayag/voteapp"
-    dockerImage = ''
+    voteregistry = "prayag/voteapp"
+    resultregistry = "prayag/resultapp"
+    workerregistry = "prayag/workerapp"
+    voteImage = ''
+    resultImage = ''
+    workerImage = ''
     }
   agent any
   stages{
@@ -21,9 +25,10 @@ pipeline {
     stage ('Build Docker Image') {
       steps{
         echo "Building Docker Image"
-        sh 'cd vote'
         script {
-          dockerImage = docker.build(registry, "-f vote/Dockerfile .")
+          voteImage = docker.build(voteregistry, "-f vote/Dockerfile .")
+          resultImage = docker.build(resultregistry, "-f result/Dockerfile .")
+          workerImage = docker.build(workerregistry, "-f worker/Dockerfile .")
         }
       }
     }

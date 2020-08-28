@@ -1,7 +1,7 @@
 pipeline {
     
   environment {
-    registry = "https://github.com/prayag5198/example-voting-app.git#master:vote"
+    registry = "prayag/voteapp"
     dockerImage = ''
     }
   agent any
@@ -21,6 +21,7 @@ pipeline {
     stage ('Build Docker Image') {
       steps{
         echo "Building Docker Image"
+        sh 'cd vote'
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
